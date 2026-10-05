@@ -1,3 +1,4 @@
+from tasks.ops import router as ops_router
 import hashlib
 import hmac
 import os
@@ -15,6 +16,7 @@ SECRET = os.environ.get("TASK_SECRET", "dev-only-change-me-32-characters-min")
 TOKEN_HOURS = int(os.environ.get("TASK_TOKEN_HOURS", "8"))
 SALT = b"task-demo-salt"
 app = FastAPI(title="Tasks")
+app.include_router(ops_router, prefix="/v1")
 bearer = HTTPBearer(auto_error=False)
 
 

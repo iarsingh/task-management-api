@@ -76,3 +76,7 @@ curl -s -X POST localhost:8000/tasks -H "Authorization: Bearer $TOKEN" -H 'conte
 - A missing, malformed, or expired token is 401. An expired token says so.
 - Another user's task is 404, not 403, so ids do not reveal what exists.
 - Bob cannot read, change, or delete Alice's task.
+
+## Ops plane
+
+Workspaces, tenant isolation, job approval, and audit live under `/v1`. Production apply is refused. See `docs/ARCHITECTURE.md`.
