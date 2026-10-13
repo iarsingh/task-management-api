@@ -1,5 +1,12 @@
 # Task management REST API
 
+## Overview
+
+A REST API where each signed-in user keeps a separate task list. Users get a bearer token from `POST /token`, then create, list, page, update and delete tasks, and every query is scoped to the owner: another user's task returns 404 so ids reveal nothing. Passwords are stored as PBKDF2 hashes and compared in constant time, and the default SQLite file uses a PostgreSQL-shaped table.
+
+- **Built with:** Python, FastAPI, SQLite, JWT, pytest, GitHub Actions
+- **Scope:** Learning lab with demo users and a demo salt that must be replaced before any shared deployment.
+
 <!-- project-guide:start -->
 ## Project guide
 
